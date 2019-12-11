@@ -1,4 +1,4 @@
-package com.parasoft.qa.pages.bodyleftpanel.loginpanel;
+package com.parasoft.qa.pages.bodyleftpanel.customerlogin;
 
 import com.parasoft.qa.base.BasePage;
 import org.openqa.selenium.WebDriver;

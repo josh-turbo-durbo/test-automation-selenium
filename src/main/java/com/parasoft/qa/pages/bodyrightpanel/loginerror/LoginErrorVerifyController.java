@@ -7,7 +7,7 @@ import org.testng.Assert;
 
 public class LoginErrorVerifyController extends BasePage {
 
-    public LoginErrorVerifyController(WebDriver driver){
+    LoginErrorVerifyController(WebDriver driver){
         super(driver);
     }
 

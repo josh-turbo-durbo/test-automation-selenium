@@ -1,12 +1,13 @@
-package com.parasoft.qa.testdata;
+package com.parasoft.qa.tests;
 
 import com.parasoft.qa.base.BaseTest;
-import com.parasoft.qa.pages.bodyleftpanel.loginpanel.LoginPanelPage;
+import com.parasoft.qa.pages.bodyleftpanel.customerlogin.LoginPanelPage;
 import com.parasoft.qa.pages.bodyrightpanel.loginerror.LoginErrorPage;
+import com.parasoft.qa.pages.bodyrightpanel.register.RegisterUserPage;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import static com.parasoft.qa.pages.bodyleftpanel.loginpanel.LoginPanelPage.getHomePage;
+import static com.parasoft.qa.pages.bodyleftpanel.customerlogin.LoginPanelPage.getHomePage;
 
 public class LoginTests extends BaseTest{
 
@@ -43,6 +44,30 @@ public class LoginTests extends BaseTest{
                 .verify()
                 .errorHeaderTextContains("Error!")
                 .errorMessageTextContains("Please enter a username and password.");
+    }
+
+    @Test
+    public void RegisterUser(){
+        loginPanelPage
+                .act()
+                .clickRegisterLink();
+
+        RegisterUserPage registerUserPage = RegisterUserPage.getRegisterUser(this.getDriver());
+        registerUserPage
+                .act()
+                .typeFirstName("Test")
+                .typeLastName("User")
+                .typeAddress("123 st")
+                .typeState("KS")
+                .typeZipCode("45612")
+                .typeCity("Somewhere")
+                .typePhone("4564564561")
+                .typeSsn("456456456")
+                .typeUsername("TestUser123")
+                .typePassword("password")
+                .typeConfirmPassword("password")
+                .clickRegisterButton();
+
     }
 
 

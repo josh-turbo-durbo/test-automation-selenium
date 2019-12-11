@@ -7,12 +7,13 @@ import com.parasoft.qa.util.driverManagers.DriverType;
 import net.bytebuddy.implementation.bind.annotation.Default;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class BasePage {
+public class BasePage<T> {
 
     private static final int TIMEOUT = 5;
     private static final int POLLING = 100;
@@ -28,6 +29,20 @@ public class BasePage {
 
     protected WebDriver getDriver() {
         return driver;
+    }
+
+    @SuppressWarnings({"unchecked","UnusedReturnValue"})
+    protected T clickElement(String xpath)  {
+        WebElement webElement = driver.findElement(By.xpath(xpath));
+        webElement.click();
+        return (T)this;
+    }
+
+    @SuppressWarnings({"unchecked","UnusedReturnValue"})
+    protected T sendKeysToElement(String xpath, String keysToSend) {
+        WebElement webElement = driver.findElement(By.xpath(xpath));
+        webElement.sendKeys(keysToSend);
+        return (T)this;
     }
 
 

@@ -20,10 +20,10 @@ public class BaseTest {
         driver.get("https://parabank.parasoft.com/");
     }
 
-    @AfterSuite
-    public void afterSuite() {
-        this.driver.close();
-    }
+//    @AfterSuite
+//    public void afterSuite() {
+//        this.driver.close();
+//    }
 
     protected WebDriver getDriver() {
         return this.driver;
