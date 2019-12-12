@@ -5,6 +5,7 @@ import net.bytebuddy.asm.Advice;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import ru.yandex.qatools.allure.annotations.Step;
 
 @SuppressWarnings({"UnusedReturnValue", "unused"})
 public class RegisterUserActController extends BasePage {
@@ -28,47 +29,54 @@ public class RegisterUserActController extends BasePage {
         return (RegisterUserActController) this.sendKeysToElement("//input[@id='customer.address.street']",address);
     }
 
-    //City
+    @Step("Enter \"{0}\" in city text box.")
     public RegisterUserActController typeCity(String city) {
         return (RegisterUserActController) this.sendKeysToElement("//input[@id='customer.address.city']",city);
     }
 
-    //State
+
+    @Step("Enter \"{0}\" in city text box.")
     public RegisterUserActController typeState(String state) {
         return (RegisterUserActController) this.sendKeysToElement("//input[@id='customer.address.state']",state);
     }
 
-    //zipCode
+
+    @Step("Enter \"{0}\" in city text box.")
     public RegisterUserActController typeZipCode(String zipCode) {
         return (RegisterUserActController) this.sendKeysToElement("//input[@id='customer.address.zipCode']",zipCode);
     }
 
-    //Phone
+
+    @Step("Enter \"{0}\" in city text box.")
     public RegisterUserActController typePhone(String phone) {
         return (RegisterUserActController) this.sendKeysToElement("//input[@id='customer.phoneNumber']",phone);
     }
 
-    //SSN
+
+    @Step("Enter \"{0}\" in city text box.")
     public RegisterUserActController typeSsn(String ssn) {
         return (RegisterUserActController) this.sendKeysToElement("//input[@id='customer.ssn']",ssn);
     }
 
-    //Username
+
+    @Step("Enter \"{0}\" in city text box.")
     public RegisterUserActController typeUsername(String username) {
         return (RegisterUserActController) this.sendKeysToElement("//input[@id='customer.username']",username);
     }
 
-    //Password
+
+    @Step("Enter \"{0}\" in city text box.")
     public RegisterUserActController typePassword(String password) {
         return (RegisterUserActController) this.sendKeysToElement("//input[@id='customer.password']",password);
     }
 
-    //confirmPassword
+
+    @Step("Enter \"{0}\" in city text box.")
     public RegisterUserActController typeConfirmPassword(String confirmPassword) {
         return (RegisterUserActController) this.sendKeysToElement("//input[@id='repeatedPassword']",confirmPassword);
     }
 
-    //clickRegisterButton
+    @Step
     public RegisterUserActController clickRegisterButton() {
         return (RegisterUserActController) this.clickElement("//table[@class='form2']//input[@class='button']");
     }

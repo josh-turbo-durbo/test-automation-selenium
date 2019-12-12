@@ -1,10 +1,6 @@
 package com.parasoft.qa.base;
 
-
-import com.parasoft.qa.util.driverManagers.DriverManager;
-import com.parasoft.qa.util.driverManagers.DriverManagerFactory;
-import com.parasoft.qa.util.driverManagers.DriverType;
-import net.bytebuddy.implementation.bind.annotation.Default;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -12,6 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import ru.yandex.qatools.allure.annotations.Step;
 
 public class BasePage<T> {
 

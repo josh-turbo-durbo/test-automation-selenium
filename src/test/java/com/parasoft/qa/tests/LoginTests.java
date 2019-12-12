@@ -5,12 +5,20 @@ import com.parasoft.qa.pages.bodyleftpanel.customerlogin.LoginPanelPage;
 import com.parasoft.qa.pages.bodyrightpanel.loginerror.LoginErrorPage;
 import com.parasoft.qa.pages.bodyrightpanel.register.RegisterUserPage;
 import com.parasoft.qa.pages.bodyrightpanel.welcomeuser.WelcomeUserPage;
+import io.qameta.allure.Description;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
+import java.lang.invoke.MethodHandles;
 
 import static com.parasoft.qa.pages.bodyleftpanel.customerlogin.LoginPanelPage.getHomePage;
 
 public class LoginTests extends BaseTest{
+
+    private static final Logger logger = LogManager.getLogger(MethodHandles.lookup().lookupClass());
+
 
     private LoginPanelPage loginPanelPage;
     private LoginErrorPage loginErrorPage;
@@ -18,11 +26,13 @@ public class LoginTests extends BaseTest{
     private RegisterUserPage registerUserPage;
 
     @BeforeClass
+    @Description("Load the home page at [https://parabank.parasoft.com]")
     public void goToHome(){
         loginPanelPage = getHomePage(this.getDriver());
     }
 
     @Test
+    @Description("Expected fail: Attempt to log in with an unregistered username/password and validate the error message.")
     public void LoginAttemptWithBadUsernamePassword() {
         loginPanelPage
                 .act()
@@ -38,6 +48,7 @@ public class LoginTests extends BaseTest{
     }
 
     @Test
+    @Description("Expected fail: Attempt to log in with no username and password and validate the error message.")
     public void LoginAttemptWithNoUsernamePassword() {
         loginPanelPage
                 .act()
@@ -51,6 +62,7 @@ public class LoginTests extends BaseTest{
     }
 
     @Test
+    @Description("Register a valid user and verify text on the 'Welcome User' page.")
     public void RegisterUser(){
         loginPanelPage
                 .act()
