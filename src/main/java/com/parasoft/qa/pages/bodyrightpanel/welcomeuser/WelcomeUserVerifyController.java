@@ -12,12 +12,20 @@ public class WelcomeUserVerifyController extends BasePage {
     }
 
     public WelcomeUserVerifyController welcomeUserHeaderTextContains(String welcomeHeaderText) {
-        Assert.assertEquals(getDriver().findElement(By.xpath("//div[@id='rightPanel']/h1[starts-with(text(),'Welcome')]")).getText(),welcomeHeaderText);
+        Assert.assertTrue(getDriver()
+                         .findElement(By.xpath("//div[@id='rightPanel']/h1[starts-with(text(),'" + welcomeHeaderText +"')]"))
+                         .getText()
+                         .contains(welcomeHeaderText)
+        );
         return this;
     }
 
-    public WelcomeUserVerifyController welcomeUserMessageTextContains(String welcomeMessageText) {
-        Assert.assertEquals(getDriver().findElement(By.xpath("//div[@id='rightPanel']/p[contains(text(),'Your account was created successfully. You are now logged in.')]")).getText(),welcomeMessageText);
+    public WelcomeUserVerifyController welcomeUserMessageTextEquals(String welcomeMessageText) {
+        Assert.assertTrue(getDriver()
+                        .findElement(By.xpath("//div[@id='rightPanel']/p[contains(text(),'" + welcomeMessageText + "')]"))
+                        .getText()
+                        .contains(welcomeMessageText)
+        );
         return this;
     }
 }

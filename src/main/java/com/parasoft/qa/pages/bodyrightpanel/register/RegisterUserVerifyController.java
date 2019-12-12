@@ -5,10 +5,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
-@SuppressWarnings({"UnusedReturnValue", "unused"})
+//@SuppressWarnings({"UnusedReturnValue", "unused"})
 public class RegisterUserVerifyController extends BasePage {
 
-    public RegisterUserVerifyController(WebDriver driver) {
+    RegisterUserVerifyController(WebDriver driver) {
         super(driver);
     }
 

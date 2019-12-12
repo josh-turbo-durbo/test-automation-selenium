@@ -9,12 +9,16 @@ public class WelcomeUserPage extends BasePage {
 
     public WelcomeUserVerifyController verify() { return verify; }
 
-    private WelcomeUserPage(WebDriver driver, WelcomeUserVerifyController verify) {
+    private WelcomeUserPage(WebDriver driver,
+                            WelcomeUserVerifyController verify) {
         super(driver);
         this.verify = verify;
     }
 
     public static WelcomeUserPage getWelcomeUser(WebDriver driver) {
-        return new WelcomeUserPage(driver, new WelcomeUserVerifyController(driver));
+        return new WelcomeUserPage(
+                driver,
+                new WelcomeUserVerifyController(driver)
+        );
     }
 }
