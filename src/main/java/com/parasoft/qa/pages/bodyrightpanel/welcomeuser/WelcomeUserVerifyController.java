@@ -1,6 +1,7 @@
 package com.parasoft.qa.pages.bodyrightpanel.welcomeuser;
 
 import com.parasoft.qa.base.BasePage;
+import com.parasoft.qa.util.Log;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -14,6 +15,7 @@ public class WelcomeUserVerifyController extends BasePage {
 
     @Step("Verify that welcome user header text contains \"{0}\"")
     public WelcomeUserVerifyController welcomeUserHeaderTextContains(String welcomeHeaderText) {
+        Log.info("Verify that header text contains '" + welcomeHeaderText + "'");
         Assert.assertTrue(getDriver()
                          .findElement(By.xpath("//div[@id='rightPanel']/h1[starts-with(text(),'" + welcomeHeaderText +"')]"))
                          .getText()

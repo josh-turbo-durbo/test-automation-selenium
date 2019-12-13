@@ -1,6 +1,7 @@
 package com.parasoft.qa.pages.bodyrightpanel.register;
 
 import com.parasoft.qa.base.BasePage;
+import com.parasoft.qa.util.Log;
 import org.openqa.selenium.WebDriver;
 
 @SuppressWarnings({"UnusedReturnValue", "unused"})
@@ -19,6 +20,7 @@ public class RegisterUserPage extends BasePage {
         super(driver);
         this.act = act;
         this.verify = verify;
+        Log.info("Load [RegisterUserPage]");
     }
 
     public static RegisterUserPage getRegisterUser(WebDriver driver) {

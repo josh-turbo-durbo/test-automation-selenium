@@ -1,6 +1,6 @@
 package com.parasoft.qa.base;
 
-import org.apache.logging.log4j.Logger;
+import com.parasoft.qa.util.Log;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,7 +8,6 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import ru.yandex.qatools.allure.annotations.Step;
 
 public class BasePage<T> {
 
@@ -32,6 +31,7 @@ public class BasePage<T> {
     protected T clickElement(String xpath)  {
         WebElement webElement = driver.findElement(By.xpath(xpath));
         webElement.click();
+        Log.info("\txpath: " + xpath);
         return (T)this;
     }
 
@@ -39,6 +39,7 @@ public class BasePage<T> {
     protected T sendKeysToElement(String xpath, String keysToSend) {
         WebElement webElement = driver.findElement(By.xpath(xpath));
         webElement.sendKeys(keysToSend);
+        Log.info("\txpath: " + xpath + "\t\nSend Keys: " + keysToSend);
         return (T)this;
     }
 
